@@ -16,7 +16,7 @@ services:
     image: mongo
     container_name: mongo-onTimeDinning
     ports:
-      - "27017:27017"
+      - "27117:27117"
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=admin
