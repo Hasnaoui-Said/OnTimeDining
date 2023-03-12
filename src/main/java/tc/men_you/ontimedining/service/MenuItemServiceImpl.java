@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import tc.men_you.ontimedining.models.entity.MenuItem;
 import tc.men_you.ontimedining.repository.MenuItemRepository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MenuItemServiceImpl implements MenuItemService {
@@ -23,6 +23,10 @@ public class MenuItemServiceImpl implements MenuItemService {
         return repository.save(item);
     }
 
+    @Override
+    public Optional<MenuItem> findById(String id) {
+        return repository.findById(id);
+    }
     @Override
     public Page<MenuItem> getAll(PageRequest pageRequest) {
         return repository.findAll(pageRequest);

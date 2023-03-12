@@ -25,10 +25,22 @@ public class RestaurantController {
         ResponseObject<Restaurant> responseObject = new ResponseObject<>(true, "saved", save);
         return new ResponseEntity<>(responseObject, HttpStatus.OK);
     }
+    @RequestMapping(method = RequestMethod.PUT, value = "/")
+    public ResponseEntity<ResponseObject<Restaurant>> update(@RequestBody @Valid Restaurant restaurant) {
+        Restaurant save = service.update(restaurant);
+        ResponseObject<Restaurant> responseObject = new ResponseObject<>(true, "update", save);
+        return new ResponseEntity<>(responseObject, HttpStatus.OK);
+    }
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public ResponseEntity<ResponseObject<List<Restaurant>>> getAll() {
         List<Restaurant> save = service.getAll();
         ResponseObject<List<Restaurant>> responseObject = new ResponseObject<>(true, "get all", save);
+        return new ResponseEntity<>(responseObject, HttpStatus.OK);
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    public ResponseEntity<ResponseObject<Restaurant>> findById(@PathVariable String id) {
+        Restaurant save = service.findById(id).orElse(null);
+        ResponseObject<Restaurant> responseObject = new ResponseObject<>(true, "get all", save);
         return new ResponseEntity<>(responseObject, HttpStatus.OK);
     }
 

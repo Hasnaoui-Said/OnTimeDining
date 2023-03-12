@@ -6,10 +6,7 @@ import tc.men_you.ontimedining.models.entity.MenuItem;
 import tc.men_you.ontimedining.repository.RestaurantRepository;
 import tc.men_you.ontimedining.models.entity.Restaurant;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class RestaurantServiceImpl implements RestaurantService {
@@ -39,9 +36,15 @@ public class RestaurantServiceImpl implements RestaurantService {
         });
         return restaurantRepository.save(restaurant);
     }
+    @Override
+    public Optional<Restaurant> findById(String id) {
+        return restaurantRepository.findById(id);
+    }
 
     @Override
     public List<Restaurant> getAll() {
         return restaurantRepository.findAll();
     }
+
+
 }
