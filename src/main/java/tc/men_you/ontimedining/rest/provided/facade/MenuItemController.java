@@ -40,7 +40,7 @@ public class MenuItemController {
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<ResponseObject<MenuItem>> findById(@PathVariable String id) {
         MenuItem save = service.findById(id).orElse(null);
-        ResponseObject<MenuItem> responseObject = new ResponseObject<>(true, "get all", save);
+        ResponseObject<MenuItem> responseObject = new ResponseObject<>(true, "get item by id", save);
         return new ResponseEntity<>(responseObject, HttpStatus.OK);
     }
 
