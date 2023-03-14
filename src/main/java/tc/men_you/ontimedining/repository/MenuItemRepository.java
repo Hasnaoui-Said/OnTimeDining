@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface MenuItemRepository extends MongoRepository<MenuItem, String> {
-    Optional<MenuItem> findById(String id);
 
 }
