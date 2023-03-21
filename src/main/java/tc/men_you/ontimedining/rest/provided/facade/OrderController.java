@@ -51,5 +51,11 @@ public class OrderController {
         ResponseObject<Order> responseObject = new ResponseObject<>(true, "get order by id", save);
         return new ResponseEntity<>(responseObject, HttpStatus.OK);
     }
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable String id) {
+        service.deleteById(id);
+        ResponseObject<Order> responseObject = new ResponseObject<>(true, "delete order by id", null);
+        return new ResponseEntity<>(responseObject, HttpStatus.OK);
+    }
 
 }

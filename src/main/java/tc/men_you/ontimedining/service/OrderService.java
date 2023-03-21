@@ -12,4 +12,6 @@ public interface OrderService {
     Order validate(String id);
 
     Optional<Order> findById(String id);
+
+    void deleteById(String id);
 }
